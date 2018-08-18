@@ -1,0 +1,119 @@
+<html>
+<head>
+<script type='text/javascript'>
+/*
+* Basic Count Up from Date and Time
+* Author: @guwii / guwii.com
+*/
+window.onload=function() {
+  // Month,Day,Year,Hour,Minute,Second
+  upTime('aug,23,2013,14:00:00'); // ****** Change this line!
+};
+function upTime(countTo) {
+  now = new Date();
+  countTo = new Date(countTo);
+  difference = (now-countTo);
+  days=Math.floor(difference/(60*60*1000*24)*1);
+  years = Math.floor(days / 365);
+  if (years > 1){ days = days - (years * 365)}
+  hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
+  mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+  secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+  document.getElementById('years').firstChild.nodeValue = years;
+  document.getElementById('days').firstChild.nodeValue = days;
+  document.getElementById('hours').firstChild.nodeValue = hours;
+  document.getElementById('minutes').firstChild.nodeValue = mins;
+  document.getElementById('seconds').firstChild.nodeValue = secs;
+
+  clearTimeout(upTime.to);
+  upTime.to=setTimeout(function(){ upTime(countTo); },1000);
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+body {
+ 	background-color: #004087;
+}
+
+#center {
+  position: relative;
+}
+
+#countup {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%); 
+  text-align: center;
+  color: #fff;
+}
+
+#countup #timeDiv {
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    font-size: 34px;
+}
+
+
+#countup #timeText {
+    	display: inline-block;
+}
+
+#countup .time {
+   padding: 5px;
+   margin: 0 0 2px;
+   border-radius: 2px;
+   background: #191970;
+}
+
+#countup .timeRef {
+   margin-top:1px;
+   font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div id="center">
+	<div id="countup">
+
+		<div id="timeDiv">
+			<div class="time"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwTeP0gCsXhunR9yhpRd1QGyC_HvLfeBUFISQPx7qbIVf439nQ" width="60px" height="40px" alt="HSV" /></div>
+			<div class="timeRef">&nbsp;</div>
+  		</div>
+		<div id="timeDiv">
+			<div class="time" style="background: #004087; margin-right:20px;">In der Ehe seit:</div>
+			<div class="timeRef">&nbsp;</div>
+  		</div>
+  		<div id="timeDiv">
+			<div class="time" id="years">00</div>
+			<div class="timeRef">JAHREN</div>
+  		</div>
+  		<div id="timeDiv">
+  			<div class="time" id="days">00</div>
+    			<div class="timeRef">TAGEN</div>
+  		</div>
+  		<div id="timeDiv">
+  			<div class="time" id="hours">00</div>
+  			<div class="timeRef">STUNDEN</div>
+  		</div>
+  		<div id="timeDiv">
+  			<div class="time" id="minutes">00</div>
+  			<div class="timeRef">MINUTEN</div>
+  		</div>
+  		<div id="timeDiv">
+			<div class="time" id="seconds">00</div>
+  			<div class="timeRef">SEKUNDEN</div>
+  		</div>
+
+
+	<div style="padding-left:50px;" id="timeDiv">
+			<div class="time"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwTeP0gCsXhunR9yhpRd1QGyC_HvLfeBUFISQPx7qbIVf439nQ" width="60px" height="40px" alt="HSV" /></div>
+			<div class="timeRef">&nbsp;</div>
+  		</div>
+	</div>
+</div>
+</body>
