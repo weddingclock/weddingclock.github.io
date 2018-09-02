@@ -44,11 +44,12 @@ body {
 #countup {
   position: absolute;
   top: 250px;
-  left: 40%;
+  left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%); 
   text-align: center;
   color: #fff;
+  background: #004087;
 }
 
 #countup #timeDiv {
@@ -58,6 +59,13 @@ body {
     font-size: 34px;
 }
 
+.bgimg {
+    position: absolute;
+    width: 1024px;
+    height: 600px;
+    background-image: url('hsv-clock.jpg');
+    background-size: 100% 100%;
+}
 
 #countup #timeText {
     	display: inline-block;
@@ -78,6 +86,7 @@ body {
 </head>
 <body>
 <div id="center">
+	<div class="bgimg">
 	<div id="countup">
 
 		<div id="timeDiv">
@@ -115,5 +124,6 @@ body {
 			<div class="timeRef">&nbsp;</div>
   		</div>
 	</div>
+   </div>
 </div>
 </body>
